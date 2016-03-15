@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mAdapter = new MyRecyclerAdapter(this,mDatas);
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL_LIST));
     }
 }

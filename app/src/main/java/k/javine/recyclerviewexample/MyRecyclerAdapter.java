@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -46,5 +47,15 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
             super(itemView);
             tv = (TextView) itemView.findViewById(R.id.tv_item);
         }
+    }
+
+    public void removeItem(int position){
+        mDatas.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void moveItem(int from,int to){
+        Collections.swap(mDatas,from,to);
+        notifyItemMoved(from,to);
     }
 }

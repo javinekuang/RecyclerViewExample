@@ -7,5 +7,5 @@
         android:endColor="#ff0090df"
         android:startColor="#ffffa000"
         android:type="sweep"/>
-    <size android:width="4dp"/>
+    <size android:width="8dp"/>
 </shape>

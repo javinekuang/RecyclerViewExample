@@ -3,8 +3,8 @@ package k.javine.recyclerviewexample;
 /**
  * 此项目为练习新技术：
  * ------2016-03-12------------
- * 1.RecyclerView的使用
- * 2.butterKnife注入框架
+ * 1.RecyclerView的使用  √
+ * 2.butterKnife注入框架  √
  * 3.glide图片加载框架
  * 4.rxJava + rxAndroid + retrofit
  * 5.MVVM + DataBinding
@@ -24,19 +24,24 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import k.javine.recyclerviewexample.receclyer.DividerGridItemDecoration;
 import k.javine.recyclerviewexample.receclyer.DividerItemDecoration;
 import k.javine.recyclerviewexample.receclyer.ItemEventCallback;
 
 public class MainActivity extends Activity {
-    private RecyclerView mRecyclerView;
+    @Bind(R.id.recycler_view)
+    RecyclerView mRecyclerView;
 
-    private List<String> mDatas;
     private MyRecyclerAdapter mAdapter;
+    private List<String> mDatas;
     private View itemView;
 
     @Override
@@ -44,6 +49,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initData();
+        ButterKnife.bind(this);
         initView();
     }
 
@@ -55,7 +61,7 @@ public class MainActivity extends Activity {
     }
 
     private void initView() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+       // mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view); //change to butterKnife
         mAdapter = new MyRecyclerAdapter(this,mDatas);
         mRecyclerView.setAdapter(mAdapter);
         //setting to show ListView Horizontal
@@ -73,5 +79,20 @@ public class MainActivity extends Activity {
         //swipe item
         ItemTouchHelper touchHelper = new ItemTouchHelper(new ItemEventCallback(mAdapter));
         touchHelper.attachToRecyclerView(mRecyclerView);
+    }
+
+    /**
+     * 处理点击事件 by butterKnife
+     */
+    @OnClick({R.id.btn_add , R.id.btn_remove})
+    public void addItem(Button btn){
+        switch (btn.getId()){
+            case R.id.btn_add:
+                mAdapter.addItem("New Item");
+                break;
+            case R.id.btn_remove:
+                mAdapter.removeItem(0);
+                break;
+        }
     }
 }

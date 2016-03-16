@@ -49,6 +49,11 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
         }
     }
 
+    public void addItem(String item){
+        mDatas.add(1,item);
+        notifyItemInserted(1);
+    }
+
     public void removeItem(int position){
         mDatas.remove(position);
         notifyItemRemoved(position);

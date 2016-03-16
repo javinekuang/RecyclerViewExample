@@ -54,11 +54,11 @@ public class ItemEventCallback extends ItemTouchHelper.Callback {
         super.onSelectedChanged(viewHolder, actionState);
         if (actionState == ItemTouchHelper.ACTION_STATE_DRAG){
             itemView = viewHolder.itemView;
-            itemView.setSelected(true);
+            itemView.setSelected(true); //让item处于选中状态，提示用户可以移动
 
         }else if (actionState == ItemTouchHelper.ACTION_STATE_IDLE){
             if (itemView != null){
-                itemView.setSelected(false);
+                itemView.setSelected(false); //处理结束，恢复item初始状态
                 itemView = null;
             }
         }

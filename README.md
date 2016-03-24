@@ -3,6 +3,7 @@
  * ------2016-03-12------------
  * 1.RecyclerView的使用    √
  * 2.butterKnife注入框架    √
+ * 2.5 拍照界面
  * 3.pull-down-refresh控件
  * 4.glide图片加载框架
  * 5.okHttp + realm + Gson 实现缓存加数据库长期存储

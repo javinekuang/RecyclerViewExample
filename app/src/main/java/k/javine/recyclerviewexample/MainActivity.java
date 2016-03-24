@@ -5,6 +5,7 @@ package k.javine.recyclerviewexample;
  * ------2016-03-12------------
  * 1.RecyclerView的使用  √
  * 2.butterKnife注入框架  √
+ * 2.5 拍照Activity
  * 3.glide图片加载框架
  * 4.rxJava + rxAndroid + retrofit
  * 5.MVVM + DataBinding
@@ -13,6 +14,7 @@ package k.javine.recyclerviewexample;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaRouter;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -32,6 +34,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import k.javine.recyclerviewexample.camera.CameraActivity;
 import k.javine.recyclerviewexample.receclyer.DividerGridItemDecoration;
 import k.javine.recyclerviewexample.receclyer.DividerItemDecoration;
 import k.javine.recyclerviewexample.receclyer.ItemEventCallback;
@@ -88,7 +91,8 @@ public class MainActivity extends Activity {
     public void addItem(Button btn){
         switch (btn.getId()){
             case R.id.btn_add:
-                mAdapter.addItem("New Item");
+                //mAdapter.addItem("New Item");
+                startActivity(new Intent(this, CameraActivity.class));
                 break;
             case R.id.btn_remove:
                 mAdapter.removeItem(0);

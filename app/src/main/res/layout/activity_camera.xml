@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capture"
+        android:onClick="capture"/>
+
+    <SurfaceView
+        android:id="@+id/camera_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@android:color/holo_blue_bright"/>
+
+    <ImageView
+        android:id="@+id/preview_iv"
+        android:layout_width="80dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"/>
+
+</LinearLayout>
